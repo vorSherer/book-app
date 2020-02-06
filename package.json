@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/vorSherer/book-app/issues"
   },
-  "homepage": "https://github.com/vorSherer/book-app#readme"
+  "homepage": "https://github.com/vorSherer/book-app#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "superagent": "^5.2.1"
+  }
 }
