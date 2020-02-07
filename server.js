@@ -29,9 +29,17 @@ app.post('/searches', (req, res) => {
   // res.status(200).send('New!');
 });
 
-
 app.get('/search', (req, res) => {
   res.status(200).send('You did a GET!');
 });
 
+//Constractor Function
+
+function Book(data){
+    this.title = data.volumeInfo.title;
+    this.authors = data.volumeInfo.authors;
+}
+
+
+app.get('*', (request, response) => response.status(404).send('This route does not exist'));
 app.listen(PORT, () => console.log('Jordan was HERE'));
