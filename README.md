@@ -19,8 +19,8 @@
 Number and name of feature: Lab 11 Feature 6 - home page
 
 Estimate of time needed to complete: 1 hr.
-2020-02-05:
-Start time: 2113 L  (9:13 pm)
+2020-02-06:
+Start time: 1840 L  (6:40 pm)
 Finish time: _____
 
 Start time: 2113 L  (9:13 pm)
