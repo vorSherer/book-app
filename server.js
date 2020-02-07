@@ -19,6 +19,17 @@ app.get('/', (req, res) => {
   // res.status(200).send('Home Page!');
 });
 
+app.get('/searches/new', (req, res) => {
+  res.render('pages/searches/new');
+});
+
+app.post('/searches', (req, res) => {
+  console.log(req.body);
+  res.render('pages/searches/show');
+  // res.status(200).send('New!');
+});
+
+
 app.get('/search', (req, res) => {
   res.status(200).send('You did a GET!');
 });

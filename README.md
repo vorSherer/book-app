@@ -31,11 +31,11 @@ Actual time needed to complete: _____
 
 ********************************************************
 
-Number and name of feature: ________________________________
+Number and name of feature: Lab 11 Feature 2
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 45 min.
 
-Start time: _____
+Start time: 1954 L (7:54 pm)
 
 Finish time: _____
 
