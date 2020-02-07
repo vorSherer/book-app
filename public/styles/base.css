@@ -1,0 +1,29 @@
+body {
+  background-color: lightgreen;
+}
+
+
+@media (max-width: 600px) {
+
+  body {
+    background-color: lightblue;
+  }
+    
+  div {
+    border: 1px red solid;
+  }
+     
+  }
+    
+/* @media (min-width: 601px) {
+    
+  body {
+    background-color: rosybrown;
+  }
+    
+  div {
+    border: 1px blue solid;
+  }
+    
+  } */
+

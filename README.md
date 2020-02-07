@@ -15,7 +15,21 @@
 -->
 
 ********************************************************
-Feature 1
+
+Number and name of feature: Lab 11 Feature 6 - home page
+
+Estimate of time needed to complete: 1 hr.
+2020-02-06:
+Start time: 1840 L  (6:40 pm)
+Finish time: 1921 L (7:21 pm)
+Actual time needed to complete: 41 min.
+
+Start time: 1922 L  (9:13 pm)
+Finish time: _____
+
+Actual time needed to complete: _____
+
+********************************************************
 
 Number and name of feature: ________________________________
 
@@ -28,7 +42,6 @@ Finish time: _____
 Actual time needed to complete: _____
 
 ********************************************************
-Feature 2
 
 Number and name of feature: ________________________________
 
@@ -41,20 +54,6 @@ Finish time: _____
 Actual time needed to complete: _____
 
 ********************************************************
-Feature 3
-
-Number and name of feature: ________________________________
-
-Estimate of time needed to complete: _____
-
-Start time: _____
-
-Finish time: _____
-
-Actual time needed to complete: _____
-
-********************************************************
-Feature 4
 
 Number and name of feature: ________________________________
 
