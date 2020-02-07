@@ -24,10 +24,10 @@ Start time: 1840 L  (6:40 pm)
 Finish time: 1921 L (7:21 pm)
 Actual time needed to complete: 41 min.
 
-Start time: 1922 L  (9:13 pm)
-Finish time: _____
+Start time: 1922 L  (7:22 pm)
+Finish time: 1953 L (7:53 pm)
 
-Actual time needed to complete: _____
+Actual time needed to complete: 31 min.
 
 ********************************************************
 
@@ -36,6 +36,18 @@ Number and name of feature: Lab 11 Feature 2
 Estimate of time needed to complete: 45 min.
 
 Start time: 1954 L (7:54 pm)
+
+Finish time: 2055 L (8:55 pm)
+
+Actual time needed to complete: 61 min.
+
+********************************************************
+
+Number and name of feature: Lab 11 Feature 3
+
+Estimate of time needed to complete: 45 min.
+
+Start time: 2056 L
 
 Finish time: _____
 

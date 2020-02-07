@@ -34,4 +34,4 @@ app.get('/search', (req, res) => {
   res.status(200).send('You did a GET!');
 });
 
-app.listen(3000, () => console.log('Jordan was HERE'));
+app.listen(PORT, () => console.log('Jordan was HERE'));
