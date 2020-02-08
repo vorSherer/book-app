@@ -1,1 +1,21 @@
-"hello world!"
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Book Collection</title>
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/icons.css">
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/modules.css">
+  </head>
+  <body>
+    <main>
+        <% searchResults.forEach( book => { %>
+            <h3><%= book.title %></h3>
+            <h3><%= book.authors %></h3>
+            <h3><%= book.description %></h3>
+            <img src="<%= book.smallThumbnail %>" alt="small picture">
+        <% }) %>
+    </main>
+  </body>
+</html>

@@ -46,8 +46,34 @@ Actual time needed to complete: 61 min.
 Number and name of feature: Lab 11 Feature 3
 
 Estimate of time needed to complete: 45 min.
-
+2020-02-06
 Start time: 2056 L
+Finish time: 2115 L
+2020-02-08
+Start time: 1408 L
+Finish time: NN L
+
+Actual time needed to complete: _____
+
+********************************************************
+
+Number and name of feature: Lab 11 Feature 4
+
+Estimate of time needed to complete: _____
+
+Start time: _____
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+********************************************************
+
+Number and name of feature: Lab 12 Feature 1
+
+Estimate of time needed to complete: _____
+
+Start time: _____
 
 Finish time: _____
 
