@@ -1,35 +1,72 @@
 'use strict';
 
 // App dependecies
+require('dotenv').config();
 const express = require('express');
 const superagent = require('superagent');
+const pg = require('pg');
 
 // App Setup
 const app = express();
+const client = new pg.Client(process.env.DATABASE_URL);
 const PORT = process.env.PORT || 3000;
-app.set('view engine', 'ejs');
 
 //app middleware
 
+app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
-app.get('/', (req, res) => {
-  res.render('pages/index');
-  // res.status(200).send('Home Page!');
-});
-
-app.get('/searches/new', (req, res) => {
-  res.render('pages/searches/new');
-});
-
 app.post('/searches', searchResults);
+app.get('/', getBook);
+app.get('/books/:id', getOneBook);
 
-app.get('/search', (req, res) => {
-  res.status(200).send('You did a GET!');
-});
 
-//Constractor Function
+
+// app.post('/tasks/', (req, res) => {
+//   res.send('created task')
+// });
+
+// app.put('/task/:id', (req, res) => {
+//   res.send('updated')
+// });
+
+// app.delete('/task/:id', (req, res) => {
+//   res.send('Deleete')
+// });
+
+// app.get('/searches/new', (req, res) => {
+//   res.render('pages/searches/new');
+// });
+
+
+// app.get('/search', (req, res) => {
+//   res.status(200).send('You did a GET!');
+// });
+
+
+function getOneBook(req, res) {
+  let SQL = 'SELECT * FROM books WHERE id=$1';
+  let values = [req.params.id];
+// console.log('values', req.params.id);
+   client.query(SQL, values)
+  .then(results => {
+    console.log('results', results.rows);
+    res.render('pages/books/detail.ejs' , {book: results.rows[0]});
+    
+  })
+  .catch(err => handelError(err, res));
+}
+
+
+//Constructor Function
+function handelError(error, res) {
+  res.render('pages/error', {error: 'You are Wrong'})
+}
+
+
+// .replace('http://', 'https://') || placeHolderImage
+//constructor helper function
 
 function Book(data){
   this.title = data.title || 'null title';
@@ -37,10 +74,20 @@ function Book(data){
   this.description = data.description || 'no description';
   this.smallThumbnail = data.imageLinks.smallThumbnail.replace('http://', 'https://') || 'Jordan says there is no image for you.';
 }
+//Get Book function
+function getBook(req , res) {
+  console.log('start function');
+  let SQL = 'SELECT * FROM books';
+  client.query(SQL)
+  .then(results => {
+    console.log('results', results);
+    res.render('pages/index.ejs', { books: results.rows})
+  })
+}
 
-// .replace('http://', 'https://') || placeHolderImage
-//constructor helper function
+
 function searchResults(request, response) {
+  console.log('in search results function');
   let url = 'https://www.googleapis.com/books/v1/volumes?q=';
   console.log(request.body);
   console.log(request.body.search);
@@ -57,5 +104,12 @@ function searchResults(request, response) {
   // how will we handle errors?
 }
 
+
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));
-app.listen(PORT, () => console.log('Jordan was HERE'));
+
+client.connect()
+  .then(() => {
+    app.listen(process.env.PORT, () => console.log(process.env.PORT))
+  });
+
+
