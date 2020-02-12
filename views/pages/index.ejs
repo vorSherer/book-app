@@ -12,6 +12,27 @@
   <link rel="stylesheet" href="/styles/modules.css">
 </head>
 <body>
+  <!-- <header>
+    <h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/searches/new">Search Book</a>
+      </nav>
+    </h1>
+  </header> -->
+  <main>
+    <div class="bookcount">
+      <h4>Book Count: <%= books.length %></h4>
+    </div>
+    <ul>
+     <% books.forEach(book => { %>
+        <li><%= book.title %></li>
+        <li><%= book.author %></li>
+        <li><%= book.description %></li>
+     <% }) %>
+    </ul>
+  </main>
+
   <form method="get" action="/search">
     <input type="text" name="title" placeholder="Title" />
     <input type="text" name="author" placeholder="Author" />
@@ -19,3 +40,4 @@
   </form>
 </body>
 </html>
+
