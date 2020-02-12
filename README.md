@@ -68,24 +68,24 @@ Actual time needed to complete: 60 min.
 ********************************************************
 
 Number and name of feature: Lab 12 Feature 1
-
+2020-02-11:
 Estimate of time needed to complete: _____
 
-Start time: _____
+Start time: 1800 L (6:00 pm)
 
-Finish time: _____
+Finish time: 2045 L (8:45 pm)
 
 Actual time needed to complete: _____
 
 ********************************************************
 
-Number and name of feature: ________________________________
+Number and name of feature: Lab 12 Feature 2
 
 Estimate of time needed to complete: _____
+2020-02-11:
+Start time: 2045 L (8:45 pm)
 
-Start time: _____
-
-Finish time: _____
+Finish time: 2125 L (9:25 pm)
 
 Actual time needed to complete: _____
 
