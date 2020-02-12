@@ -8,7 +8,7 @@ CREATE TABLE books (
     image_url VARCHAR (255),
     descriptions VARCHAR (255),
     bookshelf VARCHAR (255)
-)
+);
 
 INSERT INTO books (author, title, isbn, image_url, descriptions)
-VALUES ('author', 'title', 'isbn', 'image_url', 'descriptions')
+VALUES ('author', 'title', 'isbn', 'image_url', 'descriptions');
