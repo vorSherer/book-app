@@ -21,8 +21,23 @@ app.post('/searches', searchResults);
 app.get('/', getBook);
 app.get('/books/:id', getOneBook);
 
+app.post('/books', addBook);
 
+function addBook(req, res) {
+  console.log(req.body)
+  let {title, description, authors,ISBN, bookshelf, image_url} = req.body;
 
+  let SQL = 'INSERT INTO books(title, description, authors, ISBN, bookshelf, image_url) VALUES ($1, $2, $3, $4, $5, $6);';
+  let values = [title, description, authors, ISBN, bookshelf, image_url];
+
+  return client.query(SQL, values)
+    .then(res.redirect('/'))
+    .catch(err => handleError(err, res));
+}
+
+// app.post('/books/show', )
+
+// function addDatabase(req, res)
 
 // app.post('/tasks/', (req, res) => {
 //   res.send('created task')
@@ -36,14 +51,14 @@ app.get('/books/:id', getOneBook);
 //   res.send('Deleete')
 // });
 
-// app.get('/searches/new', (req, res) => {
-//   res.render('pages/searches/new');
-// });
+app.get('/searches/new', (req, res) => {
+  res.render('pages/searches/new');
+});
 
 
-// app.get('/search', (req, res) => {
-//   res.status(200).send('You did a GET!');
-// });
+app.get('/search', (req, res) => {
+  res.status(200).send('You did a GET!');
+});
 
 
 function getOneBook(req, res) {
@@ -56,12 +71,12 @@ function getOneBook(req, res) {
     res.render('pages/books/detail.ejs' , {book: results.rows[0]});
     
   })
-  .catch(err => handelError(err, res));
+  .catch(err => handleError(err, res));
 }
 
 
 //Constructor Function
-function handelError(error, res) {
+function handleError(error, res) {
   res.render('pages/error', {error: 'You are Wrong'})
 }
 
