@@ -20,20 +20,12 @@ app.use(express.static('./public'));
 app.post('/searches', searchResults);
 app.get('/', getBook);
 app.get('/books/:id', getOneBook);
-
 app.post('/books', addBook);
+app.put('/update/:book_id', updateBook)
+app.delete('/delete/:book_id', deleteBook)
 
-function addBook(req, res) {
-  console.log(req.body)
-  let {title, description, authors,ISBN, bookshelf, image_url} = req.body;
+app.get('/searches/new', bookSearch);
 
-  let SQL = 'INSERT INTO books(title, description, authors, ISBN, bookshelf, image_url) VALUES ($1, $2, $3, $4, $5, $6);';
-  let values = [title, description, authors, ISBN, bookshelf, image_url];
-
-  return client.query(SQL, values)
-    .then(res.redirect('/'))
-    .catch(err => handleError(err, res));
-}
 
 // app.post('/books/show', )
 
@@ -51,14 +43,51 @@ function addBook(req, res) {
 //   res.send('Deleete')
 // });
 
-app.get('/searches/new', (req, res) => {
-  res.render('pages/searches/new');
-});
-
+// app.get('/searches/new', (req, res) => {
+//   res.render('pages/searches/new');
+// });
 
 app.get('/search', (req, res) => {
   res.status(200).send('You did a GET!');
 });
+function addBook(req, res) {
+  console.log(req.body)
+  let {title, description, authors,ISBN, bookshelf, image_url} = req.body;
+
+  let SQL = 'INSERT INTO books(title, description, authors, ISBN, bookshelf, image_url) VALUES ($1, $2, $3, $4, $5, $6);';
+  let values = [title, description, authors, ISBN, bookshelf, image_url];
+
+  return client.query(SQL, values)
+    .then(res.redirect('/'))
+    .catch(err => handleError(err, res));
+}
+
+//.....................Book Search function ........................//
+function bookSearch(req, res) {
+  res.status(200).render('./pages/searches/new');
+}
+
+//Add book
+
+//..................Update Book..................//
+function updateBook(req, res) {
+  let values = req.params.book_id;
+  let { title, description, authors, ISBN, bookshelf, image_url } = request.body;
+  let SQL = `UPDATE bookApp SET title=$1, description=$2, authors=$3, ISBN=$4, bookshelf=$5 WHERE id=$6;`;
+  let safeValue = [title, description, authors, ISBN, bookshelf, image_url];
+
+  return client.query(SQL, safeValue)
+    .then(res.redirect(`/books/${values}`))
+    .catch(err => errorHandler(err, res));
+}
+
+//.....................Delete Book .............................//
+function deleteBook(req, res) {
+  let SQL = 'DELETE FROM bookApp where id=$1;';
+  let values = [req.params.book_id];
+  return client.query(SQL,values)
+    .then(res.redirect('/'))
+}
 
 
 function getOneBook(req, res) {
