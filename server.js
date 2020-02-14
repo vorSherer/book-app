@@ -43,9 +43,9 @@ app.get('/searches/new', bookSearch);
 //   res.send('Deleete')
 // });
 
-// app.get('/searches/new', (req, res) => {
-//   res.render('pages/searches/new');
-// });
+app.get('/searches/new', (req, res) => {
+  res.render('pages/searches/new');
+});
 
 app.get('/search', (req, res) => {
   res.status(200).send('You did a GET!');
@@ -93,6 +93,7 @@ function deleteBook(req, res) {
 function getOneBook(req, res) {
   let SQL = 'SELECT * FROM books WHERE id=$1';
   let values = [req.params.id];
+
 // console.log('values', req.params.id);
    client.query(SQL, values)
   .then(results => {
@@ -105,6 +106,7 @@ function getOneBook(req, res) {
 
 
 //Constructor Function
+
 function handleError(error, res) {
   res.render('pages/error', {error: 'You are Wrong'})
 }
@@ -124,10 +126,10 @@ function getBook(req , res) {
   console.log('start function');
   let SQL = 'SELECT * FROM books';
   client.query(SQL)
-  .then(results => {
-    console.log('results', results);
-    res.render('pages/index.ejs', { books: results.rows})
-  })
+    .then(results => {
+      console.log('results', results);
+      res.render('pages/index.ejs', { books: results.rows});
+    });
 }
 
 
@@ -154,7 +156,6 @@ app.get('*', (request, response) => response.status(404).send('This route does n
 
 client.connect()
   .then(() => {
-    app.listen(process.env.PORT, () => console.log(process.env.PORT))
+    app.listen(process.env.PORT, () => console.log(process.env.PORT));
   });
-
 
