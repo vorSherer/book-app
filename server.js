@@ -36,9 +36,9 @@ app.get('/books/:id', getOneBook);
 //   res.send('Deleete')
 // });
 
-// app.get('/searches/new', (req, res) => {
-//   res.render('pages/searches/new');
-// });
+app.get('/searches/new', (req, res) => {
+  res.render('pages/searches/new');
+});
 
 
 // app.get('/search', (req, res) => {
@@ -49,20 +49,20 @@ app.get('/books/:id', getOneBook);
 function getOneBook(req, res) {
   let SQL = 'SELECT * FROM books WHERE id=$1';
   let values = [req.params.id];
-// console.log('values', req.params.id);
-   client.query(SQL, values)
-  .then(results => {
-    console.log('results', results.rows);
-    res.render('pages/books/detail.ejs' , {book: results.rows[0]});
-    
-  })
-  .catch(err => handelError(err, res));
+  // console.log('values', req.params.id);
+  client.query(SQL, values)
+    .then(results => {
+      console.log('results', results.rows);
+      res.render('pages/books/detail.ejs' , {book: results.rows[0]});
+
+    })
+    .catch(err => handelError(err, res));
 }
 
 
 //Constructor Function
 function handelError(error, res) {
-  res.render('pages/error', {error: 'You are Wrong'})
+  res.render('pages/error', {error: 'You are Wrong'});
 }
 
 
@@ -80,10 +80,10 @@ function getBook(req , res) {
   console.log('start function');
   let SQL = 'SELECT * FROM books';
   client.query(SQL)
-  .then(results => {
-    console.log('results', results);
-    res.render('pages/index.ejs', { books: results.rows})
-  })
+    .then(results => {
+      console.log('results', results);
+      res.render('pages/index.ejs', { books: results.rows});
+    });
 }
 
 
@@ -110,7 +110,6 @@ app.get('*', (request, response) => response.status(404).send('This route does n
 
 client.connect()
   .then(() => {
-    app.listen(process.env.PORT, () => console.log(process.env.PORT))
+    app.listen(process.env.PORT, () => console.log(process.env.PORT));
   });
-
 
