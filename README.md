@@ -91,6 +91,21 @@ Actual time needed to complete: _____
 
 ********************************************************
 
+Number and name of feature: Lab 13 - Update/Delete functionality
+
+Estimate of time needed to complete: 60 min.
+
+2020-02-14
+Start time: 1700 L (5:00 pm)
+Finish time: 1830 L (6:30 pm)
+2020-02-15
+Start time: 0800 L (8:00 am)
+Finish time: NN L (NN pm)
+
+Actual time needed to complete: _____
+
+********************************************************
+
 Number and name of feature: ________________________________
 
 Estimate of time needed to complete: _____

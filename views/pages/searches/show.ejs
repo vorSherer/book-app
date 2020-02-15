@@ -26,7 +26,7 @@
             <h3><%= book.ISBN %></h3>
             <h3><%= book.bookshelf %></h3>
             <h3><%= book.image_url %></h3>
-            <img src="<%= book.smallThumbnail %>" alt="small picture">
+            <img src="<%= book.image_url %>" alt="small picture">
             <form method="post" action="/books">
               <button type="submit">ADD BOOK</button>
               <input type="hidden" name="title" value="<%= book.title%>">
