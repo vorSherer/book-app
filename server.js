@@ -26,7 +26,7 @@ app.get('/books/:id', getOneBook);
 app.delete('/delete/:book_id', deleteBook);
 app.post('/searches', searchResults);
 app.get('/searches/new', bookSearch);
-app.put('/update/:book_id', updateBook);
+// app.put('/update/:book_id', updateBook);
 
 
 //.....................Initial Book Search function ........................//
@@ -97,21 +97,21 @@ function getBook(req , res) {
 
 
 //..................Update Book..................//
-function updateBook(req, res) {
-  let values = req.params.book_id;
-  let { title, description, authors, isbn, bookshelf, image_url } = req.body;
-  let SQL = `UPDATE bookApp SET title=$1, description=$2, authors=$3, isbn=$4, bookshelf=$5 WHERE id=$6;`;
-  let safeValue = [title, description, authors, isbn, bookshelf, image_url];
+// function updateBook(req, res) {
+//   let values = req.params.book_id;
+//   let { title, description, authors, isbn, bookshelf, image_url } = req.body;
+//   let SQL = `UPDATE bookApp SET title=$1, description=$2, authors=$3, isbn=$4, bookshelf=$5 WHERE id=$6;`;
+//   let safeValue = [title, description, authors, isbn, bookshelf, image_url];
 
-  return client.query(SQL, safeValue)
-    .then(() => res.redirect(`/books/${values}`))
-    .catch(err => handleError(err, res));
-}
+//   return client.query(SQL, safeValue)
+//     .then(() => res.redirect(`/books/${values}`))
+//     .catch(err => handleError(err, res));
+// }
 
 
 //.....................Delete Book .............................//
 function deleteBook(req, res) {
-  let SQL = 'DELETE FROM bookApp where id=$1;';
+  let SQL = 'DELETE FROM books where id=$1;';
   let values = [req.params.book_id];
   return client.query(SQL,values)
     .then(res.redirect('/'));
