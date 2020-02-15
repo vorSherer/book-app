@@ -63,7 +63,7 @@ function addBook(req, res) {
   return client.query(SQL, values)
     .then((results) => {
       console.log(results.rows);
-      res.redirect('pages/books/show');
+      res.redirect('/');
     })
     .catch(err => handleError(err, res));
 }
@@ -141,4 +141,3 @@ client.connect()
   .then(() => {
     app.listen(process.env.PORT, () => console.log(process.env.PORT));
   });
-
